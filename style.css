@@ -1,0 +1,307 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b0b0d;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fundo 3D Interativo e Objetos Flutuantes */
+.bg-3d-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+/* Animações dos Objetos 3D */
+.shape {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(230, 0, 38, 0.4), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 rgba(230, 0, 38, 0.2);
+    animation: float3D 12s infinite ease-in-out alternate;
+}
+
+.cube {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    transform: rotateX(45deg) rotateY(45deg);
+}
+
+.sphere {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.pyramid {
+    width: 70px;
+    height: 70px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(230, 0, 38, 0.5));
+}
+
+.torus {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 20px solid rgba(230, 0, 38, 0.3);
+    background: transparent;
+}
+
+/* Posições e Tempos de Animação */
+.shape-1 { top: 15%; left: 10%; animation-duration: 10s; }
+.shape-2 { top: 60%; left: 80%; animation-duration: 14s; }
+.shape-3 { top: 75%; left: 15%; animation-duration: 9s; }
+.shape-4 { top: 20%; left: 75%; animation-duration: 11s; }
+.shape-5 { top: 40%; left: 45%; animation-duration: 16s; }
+
+@keyframes float3D {
+    0% {
+        transform: translateY(0) rotate(0deg) translateZ(0);
+    }
+    50% {
+        transform: translateY(-40px) rotate(180deg) translateZ(100px);
+    }
+    100% {
+        transform: translateY(20px) rotate(360deg) translateZ(-50px);
+    }
+}
+
+/* Layout Principal */
+.app-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Cabeçalho */
+.main-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gradient-text {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ff2e4d, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    text-shadow: 0px 5px 15px rgba(230, 0, 38, 0.3);
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #cccccc;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Painel de Estatísticas */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: rgba(20, 20, 25, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff2e4d;
+}
+
+/* Cards Interativos */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.interactive-card {
+    background: linear-gradient(145deg, rgba(30, 10, 15, 0.8), rgba(15, 15, 20, 0.8));
+    border: 1px solid rgba(230, 0, 38, 0.2);
+    border-radius: 16px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.interactive-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #ff2e4d;
+    box-shadow: 0 12px 30px rgba(230, 0, 38, 0.3);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff2e4d, #99001a);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.interactive-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.interactive-card p {
+    font-size: 0.95rem;
+    color: #bbbbbb;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.card-btn {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #ff2e4d;
+    align-self: flex-start;
+    transition: color 0.2s;
+}
+
+.interactive-card:hover .card-btn {
+    color: #ffffff;
+}
+
+/* Efeito Modal (Destaque em relação à página) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%) scale(0.9);
+    width: 90%;
+    max-width: 500px;
+    background: linear-gradient(135deg, #1f080c, #111115);
+    border: 2px solid #ff2e4d;
+    border-radius: 20px;
+    padding: 30px;
+    z-index: 11;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 50px rgba(230, 0, 38, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-icon {
+    color: #ff2e4d;
+    width: 32px;
+    height: 32px;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.modal-body p {
+    color: #dddddd;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.modal-body ul {
+    margin-left: 20px;
+    color: #bbbbbb;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.tip-highlight {
+    background: rgba(230, 0, 38, 0.15);
+    border-left: 4px solid #ff2e4d;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}

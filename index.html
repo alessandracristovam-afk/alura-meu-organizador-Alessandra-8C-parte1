@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de Alessandra</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons para ícones modernos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Fundo 3D com Elementos Flutuantes -->
+    <div class="bg-3d-container">
+        <div class="shape cube shape-1"></div>
+        <div class="shape sphere shape-2"></div>
+        <div class="shape pyramid shape-3"></div>
+        <div class="shape cube shape-4"></div>
+        <div class="shape torus shape-5"></div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="app-wrapper">
+        <header class="main-header">
+            <h1 class="gradient-text">Organizador de Alessandra</h1>
+            <p class="description">
+                Bem-vinda ao seu centro de controle pessoal. Gerencie suas tarefas diárias, estabeleça rotinas produtivas e explore dicas de organização espacial e mental projetadas para otimizar o seu dia a dia.
+            </p>
+        </header>
+
+        <!-- Seção de Métricas / Progresso Rápidos -->
+        <section class="dashboard-stats">
+            <div class="stat-card">
+                <h3>Tarefas Concluídas</h3>
+                <span class="stat-number">12 / 15</span>
+            </div>
+            <div class="stat-card">
+                <h3>Foco do Dia</h3>
+                <span class="stat-number">Alto</span>
+            </div>
+            <div class="stat-card">
+                <h3>Hábitos Em Dia</h3>
+                <span class="stat-number">85%</span>
+            </div>
+        </section>
+
+        <!-- Grid de Cards de Dicas e Destaques -->
+        <main class="cards-grid">
+            
+            <article class="interactive-card" onclick="openModal('modal-pomodoro')">
+                <div class="card-icon"><i data-lucide="timer"></i></div>
+                <h2>Técnica Pomodoro</h2>
+                <p>Divida o tempo de foco e descanso para aumentar o rendimento sem exaustão.</p>
+                <span class="card-btn">Ver Dica Completa &rarr;</span>
+            </article>
+
+            <article class="interactive-card" onclick="openModal('modal-matriz')">
+                <div class="card-icon"><i data-lucide="grid"></i></div>
+                <h2>Matriz de Eisenhower</h2>
+                <p>Aprenda a priorizar tarefas entre o que é Urgente e o que é Importante.</p>
+                <span class="card-btn">Ver Dica Completa &rarr;</span>
+            </article>
+
+            <article class="interactive-card" onclick="openModal('modal-rotina')">
+                <div class="card-icon"><i data-lucide="sun"></i></div>
+                <h2>Rotina Matinal Ideal</h2>
+                <p>Pequenos hábitos logo ao acordar que garantem clareza mental até a noite.</p>
+                <span class="card-btn">Ver Dica Completa &rarr;</span>
+            </article>
+
+            <article class="interactive-card" onclick="openModal('modal-desconexao')">
+                <div class="card-icon"><i data-lucide="moon"></i></div>
+                <h2>Higiene do Sono</h2>
+                <p>Prepare sua mente e seu ambiente para uma noite verdadeiramente restauradora.</p>
+                <span class="card-btn">Ver Dica Completa &rarr;</span>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Modais Interativos (Efeito de Destaque) -->
+
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+
+    <!-- Modal 1: Pomodoro -->
+    <div class="modal" id="modal-pomodoro">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="modal-header">
+            <i data-lucide="timer" class="modal-icon"></i>
+            <h2>Técnica Pomodoro</h2>
+        </div>
+        <div class="modal-body">
+            <p><strong>Como aplicar na sua rotina:</strong></p>
+            <ul>
+                <li><strong>25 minutos:</strong> Foco absoluto em uma única tarefa sem distrações.</li>
+                <li><strong>5 minutos:</strong> Pausa curta para alongar, beber água ou relaxar a vista.</li>
+                <li><strong>A cada 4 ciclos:</strong> Faça uma pausa mais longa (de 15 a 30 minutos).</li>
+            </ul>
+            <div class="tip-highlight">
+                <strong>Dica da Alessandra:</strong> Mantenha o celular em outro cômodo durante os 25 minutos de foco!
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Eisenhower -->
+    <div class="modal" id="modal-matriz">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="modal-header">
+            <i data-lucide="grid" class="modal-icon"></i>
+            <h2>Matriz de Eisenhower</h2>
+        </div>
+        <div class="modal-body">
+            <p>Organize suas pendências em 4 quadrantes para não viver apagando incêndios:</p>
+            <ul>
+                <li><strong>Fazer agora:</strong> Urgente e Importante (Prazos apertados).</li>
+                <li><strong>Agendar:</strong> Não Urgente, mas Importante (Planejamento e saúde).</li>
+                <li><strong>Delegar:</strong> Urgente, mas Não Importante (Interrupções).</li>
+                <li><strong>Eliminar:</strong> Nem Urgente, nem Importante (Distrações).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 3: Rotina Matinal -->
+    <div class="modal" id="modal-rotina">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="modal-header">
+            <i data-lucide="sun" class="modal-icon"></i>
+            <h2>Rotina Matinal de Sucesso</h2>
+        </div>
+        <div class="modal-body">
+            <p>Atitudes simples que preparam seu cérebro para o dia:</p>
+            <ul>
+                <li>Beba um copo de água ao acordar para reidratar o corpo.</li>
+                <li>Exponha-se à luz natural nos primeiros 20 minutos do dia.</li>
+                <li>Anote as 3 tarefas principais que tornariam o seu dia bem-sucedido.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 4: Higiene do Sono -->
+    <div class="modal" id="modal-desconexao">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="modal-header">
+            <i data-lucide="moon" class="modal-icon"></i>
+            <h2>Higiene do Sono</h2>
+        </div>
+        <div class="modal-body">
+            <p>Melhore a qualidade do descanso para ter energia máxima amanhã:</p>
+            <ul>
+                <li>Desligue telas de luz azul (celulares e TV) 1 hora antes de dormir.</li>
+                <li>Mantenha o quarto levemente fresco e o mais escuro possível.</li>
+                <li>Evite cafeína após as 14h.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Script Simples para Modais e Ícones -->
+    <script>
+        lucide.createIcons();
+
+        function openModal(modalId) {
+            document.getElementById('modal-overlay').classList.add('active');
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').classList.remove('active');
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => modal.classList.remove('active'));
+        }
+    </script>
+</body>
+</html>
